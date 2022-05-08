@@ -16,7 +16,7 @@ on:
       set_release:
         description: "Release: jammy / focal / bullseye"
         required: false
-        default: "jammy"
+        default: "bullseye"
       set_board:
         description: "Board: lepotato / odroidn2"
         required: false
@@ -24,15 +24,15 @@ on:
       armbian_soc:
         description: "Set Amlogic SoC."
         required: false
-        default: "all"
+        default: "s905d"
       armbian_kernel:
         description: "Set kernel version."
         required: false
-        default: "5.15.25_5.10.100"
+        default: "5.15.25"
       armbian_size:
         description: "Set armbian rootfs size."
         required: false
-        default: "2748"
+        default: "1500"
       armbian_fstype:
         description: "Set armbian rootfs type."
         required: false
@@ -98,7 +98,7 @@ jobs:
           cd build/
           sudo chmod +x compile.sh
           sudo ./compile.sh BRANCH=${{ env.ARMBIAN_BRANCH }} RELEASE=${{ env.ARMBIAN_RELEASE }} BOARD=${{ env.ARMBIAN_BOARD }} \
-                            BUILD_MINIMAL=no BUILD_DESKTOP=no HOST=armbian KERNEL_ONLY=no KERNEL_CONFIGURE=no \
+                            BUILD_MINIMAL=yes BUILD_DESKTOP=no HOST=armbian KERNEL_ONLY=no KERNEL_CONFIGURE=no \
                             CLEAN_LEVEL=make,debs COMPRESS_OUTPUTIMAGE=sha
           echo "::set-output name=status::success"
 
