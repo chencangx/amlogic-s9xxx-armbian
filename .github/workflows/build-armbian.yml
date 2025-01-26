@@ -231,7 +231,7 @@ on:
         default: "cc"
         type: choice
         options:
-          - ophub
+          - cc
           - angel
           - yourname
 
