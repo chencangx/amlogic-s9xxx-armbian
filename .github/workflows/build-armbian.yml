@@ -232,11 +232,10 @@ on:
       builder_name:
         description: "Set Armbian builder signature."
         required: false
-        default: "ophub"
+        default: "cc"
         type: choice
         options:
-          - ophub
-          - angel
+          - cc
 
 env:
   TZ: America/New_York
